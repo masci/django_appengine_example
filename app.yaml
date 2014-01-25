@@ -1,0 +1,27 @@
+application: wide-exchanger-382
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: django
+  version: "1.5"
+- name: PIL
+  version: "1.1.7"
+
+- name: MySQLdb
+  version: "latest"
+
+builtins:
+- django_wsgi: on
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'myblog.settings'
+  DATABASE_URL: 'mysql://root@wide-exchanger-382:red/myblog'
+  #DATABASE_URL: 'rdbms://root@wide-exchanger-382:red/myblog'
+  #DATABASE_URL: 'mysql://root:root@localhost/myblog'
+
+handlers:
+- url: /static
+  static_dir: static
